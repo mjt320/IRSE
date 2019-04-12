@@ -1,4 +1,4 @@
-function pipeline_R1_create_map(opts)
+function pipeline_IRR1_create_map_3par(opts)
 %generate T1 map using IRSE data
 
 load([opts.niftiDir '/acqPars'],'acqPars'); %load acquisition parameters
@@ -94,8 +94,8 @@ end
 spm_file_merge(sort(getMultipleFilePaths([opts.mapDir '/model_echo_*.nii'])),[opts.mapDir '/model.nii'],0);
 delete([opts.mapDir '/model_echo_*.nii']);
 
-paramNames={'T1' 'a' 'b' 'RSq'};
-outputs={T1 a b RSq};
+paramNames={'T1' 'R1' 'a' 'b' 'RSq'};
+outputs={T1 1./T1 a b RSq};
 
 for iOutput=1:size(outputs,2)
     volOutput=volTemplate;

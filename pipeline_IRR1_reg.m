@@ -1,4 +1,4 @@
-function pipeline_R1_reg(opts)
+function pipeline_IRR1_reg(opts)
 %2D co-registration of IRSE images
 
 mkdir(opts.niftiRegDir); delete([opts.niftiRegDir '/*.*']);
